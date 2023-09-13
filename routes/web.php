@@ -1,11 +1,16 @@
 <?php
 
+use App\Http\Controllers\AnggotaController;
+use App\Http\Controllers\BukuController;
+use App\Http\Controllers\MasterController;
+use App\Http\Controllers\PeminjamanController;
+use App\Http\Controllers\PengembalianController;
+use App\Http\Controllers\PetugasController;
+use App\Http\Controllers\RakController;
+use App\Models\Peminjaman;
+use App\Models\Pengembalian;
+use App\Models\rak;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\{
-    AnggotaController, 
-    BukuController, 
-    PetugasController
-};
 
 /*
 |--------------------------------------------------------------------------
@@ -16,14 +21,30 @@ use App\Http\Controllers\{
 | routes are loaded by the RouteServiceProvider and all of them will
 | be assigned to the "web" middleware group. Make something great!
 |
+
+
 */
 
-Route::get('/', function () {
-    return view('welcome');
-})->name('dashboard');
+/*Route::get('/welcome', function () {
+    return view('welcome')->name('welcome');
+});
 
-Route::get('/anggota', [AnggotaController::class, 'anggota'])->name('get_anggota');
+Route::get('/form', function () {
+    return view('form')->name('form');
+});
+*/
+Route::get('/master', [MasterController::class, 'master'])->name('master');
+Route::get('/', [MasterController::class, 'content'])->name('index');
+Route::get('/anggota', [AnggotaController::class, 'anggota'])->name('anggota');
+Route::get('/buku', [BukuController::class, 'buku'])->name('buku');
+Route::get('/peminjaman', [PeminjamanController::class, 'peminjaman'])->name('peminjaman');
+Route::get('/pengembalian', [PengembalianController::class, 'pengembalian'])->name('pengembalian');
+Route::get('/petugas', [PetugasController::class, 'petugas'])->name('petugas');
+Route::get('/rak', [RakController::class, 'rak'])->name('rak');
 
-Route::get('/buku', [BukuController::class, 'buku'])->name('get_buku');
-
-Route::get('/petugas', [PetugasController::class, 'petugas'])->name('get_petugas');
+Route::post('/anggota/store', [AnggotaController::class, 'storeAnggota']);
+Route::post('/buku/store', [BukuController::class, 'storeBuku']);
+Route::post('/peminjaman/store', [PeminjamanController::class, 'storePeminjaman']);
+Route::post('/pengembalian/store', [PengembalianController::class, 'storePengembalian']);
+Route::post('/petugas/store', [PetugasController::class, 'storePetugas']);
+Route::post('/rak/store', [RakController::class, 'storeRak']);
