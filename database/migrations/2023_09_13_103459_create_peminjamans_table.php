@@ -22,7 +22,7 @@ return new class extends Migration
             $table->foreign('id_anggota')->references('id')->on('anggotas');
             // $table->foreignId('id_anggota')->constrained('anggotas');
             $table->unsignedBigInteger('id_petugas');
-            $table->foreign('id_petugas')->references('id')->on('petugas');
+            $table->foreign('id_petugas')->references('id')->on('petugass');
             // $table->foreignId('id_petugas')->constrained('petugass');
             $table->timestamps();
         });

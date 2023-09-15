@@ -14,18 +14,18 @@ class MasterController extends Controller
 {
 
     public function content(){
-        $buku = Buku::all();
-        $anggota = Anggota::all();
-        $peminjaman = Peminjaman::all();
-        $pengembalian = Pengembalian::all();
-        $petugas = Petugas::all();
-        $rak = Rak::all();
-        return view('content',compact(['buku','anggota','peminjaman','pengembalian','petugas','rak']));
-        //dd($buku);
+        // $buku = Buku::all();
+        // $anggota = Anggota::all();
+        // $peminjaman = Peminjaman::all();
+        // $pengembalian = Pengembalian::all();
+        // $petugas = Petugas::all();
+        // $rak = Rak::all();
+        // return view('welcome' ,compact(['buku','anggota','peminjaman','pengembalian','petugas','rak']));
+        // dd($buku);
+        return view('welcome');
     }
 
     public function master(){
-        return view('template.master');
+        return view('welcome');
     }
-
 }
