@@ -31,7 +31,7 @@
                         </div>
                         <!-- /.card-header -->
                         <!-- form start -->
-                        <form action="{{ route('petugas.store')}}" method="post">
+                        <form action="{{ route('petugas.store')}}" method="POST">
                             @csrf
                             <div class="card-body">
                                 <div class="form-group">
@@ -48,8 +48,8 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="tlp_petugas" name="tlp_petugas" id="tlp_petugas">telepon petugas</label>
-                                    <input class="form-control" type="text" name="tlp_petugas" id="tlp_petugas" placeholder="telepon petugas">
+                                    <label for="no_telp_petugas" name="no_telp_petugas" id="no_telp_petugas">telepon petugas</label>
+                                    <input class="form-control" type="text" name="no_telp_petugas" id="no_telp_petugas" placeholder="telepon petugas">
                                 </div>
 
                                 <div class="form-group">

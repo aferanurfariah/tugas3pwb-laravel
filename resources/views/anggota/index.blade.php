@@ -66,9 +66,13 @@
                                     <td>{{ $value->no_telp_anggota }}</td>
                                     <td>{{ $value->alamat_anggota }}</td>
                                     <td>
-                                        <a href="" class="btn-sm btn-info">Show</a>
-                                        <a href="" class="btn-sm btn-warning">Edit</a>
-                                        <a href="" class="btn-sm btn-danger">Delete</a>
+                                        <form action="{{ route('anggota.destroy', $value->id)}}" method="POST">
+                                            @csrf
+                                            @method('DELETE')
+                                        <a href="{{ route('anggota.show', $value->id) }}" class="btn-sm btn-info">Show</a>
+                                        <a href="{{ route('anggota.edit', $value->id) }}" class="btn-sm btn-warning">Edit</a>
+                                        <button type="submit" class="btn-sm btn-danger" onclick="return confirm('Apakah Anda Yakin Ingin Menghapus?')">Hapus</button>
+                                        </from>
                                     </td>
                                 </tr>
 
@@ -79,6 +83,9 @@
                                 @endforelse
                             </tbody>
                         </table>
+                        <div>
+                            <a href="{{ route('anggota.create')}}" class="btn btn-sm btn-primary m-2">Tambah Data</a>
+                        </div>
                     </div>
                 </div>
             </div>
